@@ -4,7 +4,7 @@ using namespace std;
 
 class Calculator
 {
-public:
+public:    // всеобщий
     double num1;
     double num2;
     double add()
@@ -31,7 +31,12 @@ public:
     {
         return num2 / num1;
     }
-    bool set_num1(double num1)
+    bool checking()
+    {
+        return (set_num1(num1) && set_num2(num2));
+    }
+private:
+        bool set_num1(double num1)
     {
         return static_cast<bool>(num1);
     }
@@ -50,7 +55,7 @@ int main()
         cin >> paar.num1;
         cout << "Введите num2: ";
         cin >> paar.num2;
-        if (paar.set_num1(paar.num1) && paar.set_num2(paar.num2))
+        if (paar.checking())
         {
             cout << "num1 + num2 = " << paar.add() << "\n";
             cout << "num1 - num2 = " << paar.subtract_1_2() << "\n";

@@ -5,8 +5,7 @@ using namespace std;
 class counter
 {
 public:
-    int number;
-    int close = 0;
+    
     void cases(char sign)
     {
 
@@ -23,6 +22,8 @@ public:
     }
 
 private:
+    int number;
+    int close = 0;
     void add()
     {
         number++;
@@ -40,12 +41,23 @@ private:
    {
        cout << number<<"\n";
    }
-   
+public:
+   void be_done()
+   {
+       char any_sign;
+       cin >> number;
+       do {
+           cout << "Введите команду ('+', '-', '=' или 'x'):";
+           cin >> any_sign;
+           cases(any_sign);
+           if (close == 1) break;
+       } while (true);
+   }
 };
 
 int main()
 {
-    char agreement[5], any_sign;
+    char agreement[5];
     counter number1;
     setlocale(LC_ALL, "rus");
     cout << "Вы хотите указать начальное значение счётчика? Введите да или нет:";
@@ -53,13 +65,6 @@ int main()
     if (strlen(agreement)==3)
     { cout << "До свидания"; return 0; }
      cout << "Введите начальное значение счётчика: ";
-     cin >> number1.number;
-     do {
-         cout << "Введите команду ('+', '-', '=' или 'x'):";
-         cin >> any_sign;
-        number1.cases(any_sign);
-        if (number1.close == 1) break;
-        } 
-    while (true);
+     number1.be_done();
     return 0;
 }
