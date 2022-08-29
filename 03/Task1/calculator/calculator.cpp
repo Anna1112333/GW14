@@ -7,9 +7,12 @@ class Calculator
 private:
 	double num1;
 	double num2;
-
-public:
 	bool checking = true;
+public:
+	bool isChecking()
+	{
+		return checking;
+	}
 	double add()
 	{
 		return num1 + num2;
@@ -34,18 +37,17 @@ public:
 	{
 		return num2 / num1;
 	}
-	
-	void set_num1()
+
+	void set_num1(int num)
 	{
-		cin >> num1;
-		if (num1 == 0) checking = false;
+		if (num == 0) checking = false;
+		else { num1 = num; checking = true; }
 	}
-	void set_num2()
+	void set_num2(int num)
 	{
-		cin >> num2;
-		if (num2 == 0) checking = false;
+		if (num == 0) checking = false;
+		else { num2 = num; if(checking!=false) checking = true; }
 	}
-	
 };
 
 int main()
@@ -54,10 +56,14 @@ int main()
 	setlocale(LC_ALL, "rus");
 	do {
 		cout << "Введите num1: ";
-		paar.set_num1();
+		int n1;
+		cin >> n1;
+		paar.set_num1(n1);
 		cout << "Введите num2: ";
-		paar.set_num2();
-		if (paar.checking)
+		int n2;
+		cin >> n2;
+		paar.set_num2(n2);
+		if (paar.isChecking())
 		{
 			cout << "num1 + num2 = " << paar.add() << "\n";
 			cout << "num1 - num2 = " << paar.subtract_1_2() << "\n";
@@ -65,10 +71,8 @@ int main()
 			cout << "num1 * num2 = " << paar.multiply() << "\n";
 			cout << "num1 / num2 = " << paar.divide_1_2() << "\n";
 			cout << "num2 / num1 = " << paar.divide_2_1() << "\n";
-
 		}
 		else cout << "Неверный ввод!\n";
 	} while (true);
 	return 0;
-
 }
