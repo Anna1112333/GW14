@@ -4,9 +4,11 @@ using namespace std;
 
 class figure 
 {
-public:
+protected:
     int sides_count=0;
     string fig_name = "Фигура";
+    int sides;
+public:
     virtual  void get_sides_count() { sides_count = sides;
     cout << fig_name << ": " << sides_count;
     }
@@ -14,7 +16,7 @@ public:
     figure(){ sides = 0;
     string fig_name = "Фигура";
     };
-    int sides;
+    
 };
 
 class triangle : public figure
@@ -22,7 +24,7 @@ class triangle : public figure
     triangle() {
         fig_name = "Треугольник";
        sides = 3;
-        cout << sides_count;
+      
     };
     void get_sides_count() override {
         sides_count = sides;
@@ -55,6 +57,5 @@ int main()
     p->get_sides_count();
     b->get_sides_count();
     chet->get_sides_count();
-   
 }
 
