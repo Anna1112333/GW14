@@ -53,13 +53,13 @@ public:
     isosceles_triangle() : triangle()
     {
        
-        
-        //if (!((a == b && A == B) || (a == c && A == C || b == c && B == C)) 
-            ff = false;
-         void ff_l(bool &ff); 
         a = 50;  b = 10;  c = 15;
         A = 41;  B = 41;  C = 98;
         fig_name = "Равнобедренный треугольник";
+        if (!(a == b && A == B) || (a == c && A == C) || (b == c && B == C)) 
+            ff = false;
+         void ff_l(bool &ff); 
+        
     }
 };
 //равносторонний
@@ -69,8 +69,12 @@ public:
     equilateral_triangle() : triangle()
     {
         a = 10;  b = 10;  c = 10;
-        A = 60;  B = 60;  C = 60;
+        A = 60;  B = 60;  C = 10;
         fig_name = "Равноcторонний треугольник";
+        if (!(A==C && a==c && b==c && B==C))
+            ff = false;
+        void ff_l(bool& ff);
+        
     }
 };
 
@@ -83,6 +87,9 @@ public:
         a = 14;  b = 14;  c = 20;
         A = 45;  B = 45;  C = 90;
         fig_name = "Прямоугольный треугольник";
+        if (!(A == 90 ||  B == 90 || C==90))
+            ff = false;
+        void ff_l(bool& ff);
     }
 };
 //четырёхугольник
@@ -103,8 +110,11 @@ public:
     rectangle() : quadrangle()
     {
         a = 14;  b = 20;  c = 14; d = 20;
-        A = B = C = D = 90;
+        A = B = C = D = 91;
         fig_name = "Прямоугольник";
+        if (!(A == 90 && a == c && b == d && B == 90 && C ==90 && D ==90))
+            ff = false;
+        void ff_l(bool& ff);
     }
 };
 //квадрат
@@ -115,6 +125,9 @@ public:
     {
         a = b = c = d = 20;
         fig_name = "Квадрат";
+        if (!(A == 90 && D==90 && a == c && b == c && d==c && B == 90 && C ==90))
+            ff = false;
+        void ff_l(bool& ff);
     }
 };
 //параллелограмм
@@ -124,8 +137,11 @@ public:
     parallelogram() : quadrangle()
     {
         a = 14;  b = 20;  c = 14; d = 20;
-        A = 45;  B = 135;  C = 45; D = 135;
+        A = 45;  B = 135;  C = 1; D = 135;
         fig_name = "Параллелограмм";
+        if (!(A == C && a == c && b == d && B == D))
+            ff = false;
+        void ff_l(bool& ff);
     }
 };
 
@@ -138,6 +154,9 @@ public:
         a = 20;  b = 20;  c = 20; d = 20;
         A = 45;  B = 135;  C = 45; D = 135;
         fig_name = "Ромб";
+        if (!(A == C && a == c && b == c && d==c && B == C && D==C))
+            ff = false;
+        void ff_l(bool& ff); 
     }
 };
 int main()
