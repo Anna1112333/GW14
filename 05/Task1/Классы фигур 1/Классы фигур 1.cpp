@@ -4,16 +4,15 @@ using namespace std;
 
 class figure 
 {
-protected:
+private:
     int sides_count=0;
     string fig_name = "Фигура";
     int sides;
+protected:
+    figure()
 public:
-    virtual  void get_sides_count() { sides_count = sides;
-    cout << fig_name << ": " << sides_count;
-    }
-
-    figure(){ sides = 0;
+    figure()
+    { sides = 0;
     string fig_name = "Фигура";
     };
     
@@ -21,28 +20,21 @@ public:
 
 class triangle : public figure
 {public:
-    triangle() {
-        fig_name = "Треугольник";
-       sides = 3;
-      
-    };
-    void get_sides_count() override {
-        sides_count = sides;
-        cout <<"\n" << fig_name << ": " << sides_count;
-    };
+    triangle()
+    {
+       string fig_name = "Треугольник";
+       int sides = 3;
+     };
  };
 
 class quadrangle : public figure
 {public:
     quadrangle()
     {
-        sides = 4;
-        fig_name = "Четырёхугольник";
+        int sides = 4;
+        string fig_name = "Четырёхугольник";
     };
-    void get_sides_count() override {
-        sides_count = sides;
-        cout << "\n" << fig_name << ": " << sides_count;
-    };
+   
 };
 int main()
 {
@@ -54,8 +46,6 @@ int main()
     quadrangle* chet = &c;
     setlocale(LC_ALL, "rus");
     cout << "Колличество сторон: \n";
-    p->get_sides_count();
-    b->get_sides_count();
-    chet->get_sides_count();
+    cout << p->sides << p.figname;
+   
 }
-
