@@ -5,47 +5,57 @@ using namespace std;
 class figure 
 {
 private:
-    int sides_count=0;
-    string fig_name = "Фигура";
-    int sides;
-protected:
-    figure()
-public:
-    figure()
-    { sides = 0;
-    string fig_name = "Фигура";
+    string name = "Фигура";
+    int sides=0;
+    //присвоение
+    figure(string name, int sides)
+    {
+        this->name = name;
+        this->sides = sides;
     };
-    
+public:
+    figure() : figure(name, sides)
+    {
+        print1();
+    };
+public:
+    void print1()
+    {
+        cout << name << "сторон: " << sides << endl;
+    }
 };
 
 class triangle : public figure
 {public:
-    triangle()
+        string name = "Треугольник";
+        int sides = 3;
+    triangle():figure()
     {
-       string fig_name = "Треугольник";
-       int sides = 3;
-     };
+        
+    };
  };
 
 class quadrangle : public figure
 {public:
-    quadrangle()
-    {
         int sides = 4;
-        string fig_name = "Четырёхугольник";
+        string name = "четырёхугольник";
+        quadrangle():figure()
+    {
+       
     };
    
 };
+
 int main()
 {
-    figure a;
-    figure* p = &a;
     triangle vg;
     triangle* b = &vg;
     quadrangle c;
     quadrangle* chet = &c;
     setlocale(LC_ALL, "rus");
     cout << "Колличество сторон: \n";
-    cout << p->sides << p.figname;
+    figure aa; aa.print1();
    
+    //c.print1();
+    //chet->print1();
 }
