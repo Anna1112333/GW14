@@ -7,41 +7,38 @@ class figure
 protected:
     string name = "Фигура ";
     int sides=0;
-    int si =1;
-    //присвоение
-    figure(string &name, int &sides)
-    {
-        this->name = name;
-        this->sides = sides;
-     };
+    
 public:
-    figure(){};
+    figure() { };
     void print1()
     {
-        si = 1;
+       
         cout <<"Фигура: " << name << "сторон: " << sides << endl;
     }
 };
 
 class triangle : public figure
 {protected:
-        string name = "Треугольник ";
-        int sides = 3;
+    void funk1() {
+        this->name = "Треугольник ";
+        this->sides = 3;
+    }
 public:
-    triangle() { triangle(this->name, this->sides); }
-    triangle(string name, int sides):figure(name,sides)
-    {  print1(); };
+   
+    triangle() :figure() { funk1(); };
+    
+   
  };
 
 class quadrangle : public figure
 {protected:
-   
-        int sides = 4;
-        string name = "Четырёхугольник ";
+    void func1() {
+        this->sides = 4;
+        this->name = "Четырёхугольник ";
+    }
 public:
-    quadrangle() { quadrangle(this->name, this->sides); }
-       quadrangle( string name,int sides): figure(name,sides)
-    { print1(); };
+    quadrangle() :figure() { func1(); };
+   
  };
 
 int main()
@@ -51,5 +48,8 @@ int main()
     figure aa;
    aa.print1();
     triangle vg;
+    vg.print1();
+
     quadrangle fg;
+    fg.print1();
   }
